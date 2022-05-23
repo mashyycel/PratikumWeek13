@@ -32,10 +32,14 @@ namespace PratikumWeek13
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtPlayer);
             cb_nation.DataSource = dtPlayer;
+            
+            cb_nation.ValueMember = "Nationality";
             cb_nation.DisplayMember = "Nationality";
             cb_team.DataSource = dtPlayer;
-            cb_team.DisplayMember = "TeamName";
             
+            cb_team.ValueMember = "TeamName";
+            cb_team.DisplayMember = "TeamName";
+
             dtp_birthdate.CustomFormat ="dddd, MMMM dd, yyyy";
             dtp_birthdate.Format = DateTimePickerFormat.Custom;
             lokasi(0);
