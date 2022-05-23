@@ -35,9 +35,10 @@ namespace PratikumWeek13
             cb_nation.DisplayMember = "Nationality";
             cb_team.DataSource = dtPlayer;
             cb_team.DisplayMember = "TeamName";
-            lokasi(0);
+            
             dtp_birthdate.CustomFormat ="dddd, MMMM dd, yyyy";
             dtp_birthdate.Format = DateTimePickerFormat.Custom;
+            lokasi(0);
         }
 
         public void lokasi(int Posisi)
@@ -46,7 +47,7 @@ namespace PratikumWeek13
             tb_playerID.Text = dtPlayer.Rows[Posisi][0].ToString();
             tb_Name.Text = dtPlayer.Rows[Posisi][1].ToString();
             dtp_birthdate.Text = dtPlayer.Rows[Posisi][2].ToString();
-            cb_nation.DisplayMember = dtPlayer.Rows[Posisi][3].ToString();
+            cb_nation.Text = dtPlayer.Rows[Posisi][3].ToString();
             cb_team.Text = dtPlayer.Rows[Posisi][4].ToString();
             nud_TeamNumber.Text = dtPlayer.Rows[Posisi][5].ToString();
             //if()
@@ -119,7 +120,10 @@ namespace PratikumWeek13
 
         private void nud_TeamNumber_ValueChanged(object sender, EventArgs e)
         {
-           
+           // if(nud_TeamNumber.Value == nud_TeamNumber.Value)
+           // {
+           //   MessageBox.Show("nomer sama");
+           // }
         }
     }
 }
