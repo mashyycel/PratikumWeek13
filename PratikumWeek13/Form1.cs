@@ -101,13 +101,12 @@ namespace PratikumWeek13
             
             if(lbl_avail.Text == "Not Available")
             {
-
                 MessageBox.Show("Team Number Sama");
             }
             else
             {
                 sqlConnect.Open();
-                sqlQuery = "UPDATE player p, team t, nationality n SET p.player_id = '" + tb_playerID.Text + " ',  p.player_name = '" + tb_Name.Text + "',  BirthDate = '" + dtp_birthdate.Text + "',  n.nation = '" + cb_nation.Text + "', t.team_name = '" + cb_team.Text + "',p.team_number = '" + nud_TeamNumber.Text + "' WHERE player_id = '" + tb_playerID.Text + "'; ";
+                sqlQuery = "UPDATE player p, team t, nationality n SET p.player_id = '" + tb_playerID.Text + " ',  p.player_name = '" + tb_Name.Text + "',  BirthDate = '" + dtp_birthdate.Text + "',  n.nation = '" + cb_nation.Text + "', t.team_name = '" + cb_team.Text + "',p.team_number = '" + nud_TeamNumber.Text + "' WHERE p.team_id = t.team_id and p.nationality_id = n.nationality_id and player_id = '" + tb_playerID.Text + "'; ";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlCommand.ExecuteNonQuery();
                 DataTable dtPlayer = new DataTable();
@@ -126,7 +125,11 @@ namespace PratikumWeek13
         {
            // if(nud_TeamNumber.Value == nud_TeamNumber.Value)
            // {
-           //   MessageBox.Show("nomer sama");
+           //   lbl_avail.Text == "Not Available";
+           // }
+           // else 
+           // {
+           //    lbl_avail.Text == "Available";
            // }
         }
     }
